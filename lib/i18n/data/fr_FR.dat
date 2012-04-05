@@ -1,1 +1,1 @@
-a:1:{s:7:"Version";s:4:"1.45";}
+a:2:{s:7:"Version";s:4:"1.45";s:8:"calendar";a:1:{s:9:"gregorian";a:1:{s:16:"DateTimePatterns";a:1:{i:7;s:10:"dd/MM/yyyy";}}}}
