@@ -152,9 +152,9 @@ abstract class sfApplicationConfiguration extends ProjectConfiguration
     }
 
     // compress output
-    if (!self::$coreLoaded)
+    if (!self::$coreLoaded && sfConfig::get('sf_compressed'))
     {
-      ob_start(sfConfig::get('sf_compressed') ? 'ob_gzhandler' : '');
+      ob_start('ob_gzhandler');
     }
 
     self::$coreLoaded = true;
@@ -180,10 +180,10 @@ abstract class sfApplicationConfiguration extends ProjectConfiguration
 
   /**
    * Adds enabled plugins to autoload config.
-   * 
+   *
    * @param sfEvent $event
    * @param array   $config
-   * 
+   *
    * @return array
    */
   public function filterAutoloadConfig(sfEvent $event, array $config)
