@@ -3,7 +3,7 @@
 /*
  * This file is part of the symfony package.
  * (c) Fabien Potencier <fabien.potencier@symfony-project.com>
- * 
+ *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -339,7 +339,7 @@ abstract class sfWidget
   {
     $value = is_object($value) ? $value->__toString() : (string) $value;
 
-    return self::fixDoubleEscape(htmlspecialchars($value, ENT_QUOTES, self::getCharset()));
+    return self::fixDoubleEscape(htmlspecialchars(!is_array($value) ? (string) $value : null, ENT_QUOTES, self::getCharset()));
   }
 
   /**
