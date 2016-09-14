@@ -1419,7 +1419,7 @@ class Archive_Zip
         }
 
         // ----- Write the compressed content
-        $v_binary_data = pack('a'.$p_header['compressed_size'], $v_content_compressed);
+        $v_binary_data = pack('Z'.$p_header['compressed_size'], $v_content_compressed);
         @fwrite($this->_zip_fd, $v_binary_data, $p_header['compressed_size']);
 
         // ----- Close the file
@@ -2142,7 +2142,7 @@ class Archive_Zip
           {
             $v_read_size = ($v_size < ARCHIVE_ZIP_READ_BLOCK_SIZE ? $v_size : ARCHIVE_ZIP_READ_BLOCK_SIZE);
             $v_buffer = fread($this->_zip_fd, $v_read_size);
-            $v_binary_data = pack('a'.$v_read_size, $v_buffer);
+            $v_binary_data = pack('Z'.$v_read_size, $v_buffer);
             @fwrite($v_dest_file, $v_binary_data, $v_read_size);
             $v_size -= $v_read_size;
           }
